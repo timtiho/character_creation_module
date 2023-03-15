@@ -4,6 +4,12 @@ from graphic_arts.start_game_banner import run_screensaver
 
 
 def main():
+    """Запуск игры.
+    Демонстрирует интро игры,
+    фиксирует имя игрока,
+    а также запускает последующие функции по выбору класса игрока
+    и тренировочному бою.
+    """
     if __name__ == '__main__':
         run_screensaver()
         print('Приветствую тебя, искатель приключений!')
@@ -18,6 +24,7 @@ def main():
 
 
 def choice_char_class() -> str:
+    """Функция фиксирует выбор одного из трех классов игрока."""
     approve_choice: str = ''
     char_class: str = ''
     while approve_choice != 'y':
@@ -42,6 +49,9 @@ def choice_char_class() -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Функция демонстрирует тренировочный бой.
+    Использует последующие функции атаки, защиты и колдунства.
+    """
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -67,6 +77,9 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def attack(char_name: str, char_class: str) -> str:
+    """Стандартная атака.
+    Функция производит стандартную атаку для каждого из классов игрока.
+    """
     if char_class == 'warrior':
         return str(f'{char_name} '
                    'нанёс урон противнику равный '
@@ -83,6 +96,9 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Защита.
+    Функция производит стандартную защиту для каждого из классов игрока.
+    """
     if char_class == 'warrior':
         return str(f'{char_name} блокировал {10 + randint(5, 10)} урона')
     if char_class == 'mage':
@@ -93,6 +109,10 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Специальная атака.
+    Функция производит специальную колдунскую атаку
+    для каждого из классов игрока.
+    """
     if char_class == 'warrior':
         return str(f'{char_name} применил специальное умение '
                    f'«Выносливость {80 + 25}»')
